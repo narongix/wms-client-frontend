@@ -4,9 +4,11 @@ import 'primeicons/primeicons.css';
 import 'prismjs/themes/prism-coy.css';
 import './assets/styles/layout.scss';
 import './assets/demo/flags/flags.css';
+import "vue-select/dist/vue-select.css";
 
 import { createApp, reactive } from 'vue';
 import router from './router';
+import store from './store/index.js';
 import AppWrapper from './AppWrapper.vue';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
@@ -93,9 +95,16 @@ import Tree from 'primevue/tree';
 import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
+///Non-template Customizations
+import TransferItem from './components/ui/transfers/TransferItem.vue';
 
 import CodeHighlight from './AppCodeHighlight';
 import BlockViewer from './BlockViewer';
+import vSelect from "vue-select";
+
+
+
+
 
 router.beforeEach(function(to, from, next) {
     window.scrollTo(0, 0);
@@ -195,7 +204,10 @@ app.component('Tree', Tree);
 app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
-
+app.component('TransferItem',TransferItem);
 app.component('BlockViewer', BlockViewer);
+app.component("v-select", vSelect);
+app.use(store);
+
 
 app.mount('#app');

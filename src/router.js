@@ -1,8 +1,22 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import App from './App.vue';
+import TransferDetail from './components/TransferDetail.vue';
+import TransferList from './components/TransferList.vue';
+import ProductList from './pages/products/ProductList.vue';
+import ProductDetail from './pages/products/ProductDetail.vue';
+import NewProduct from './pages/products/NewProduct.vue';
+import ProductCategory from './pages/products/ProductCategory.vue' ;
+
+
 
 const routes = [
     {
+        path: '/auth',
+        name: 'auth',
+        component: () => import('./pages/auth/UserAuth.vue')
+    },
+    {
+
         path: '/',
         name: 'app',
         component: App,
@@ -10,6 +24,8 @@ const routes = [
             {
                 path: '',
                 name: 'dashboard',
+                //if already logged in set component to dashboard, if not
+                // set component url to login
                 component: () => import('./components/Dashboard.vue')
             },
             {
@@ -37,11 +53,41 @@ const routes = [
                 name: 'button',
                 component: () => import('./components/ButtonDemo.vue')
             },
+
             {
                 path: '/table',
                 name: 'table',
                 component: () => import('./components/TableDemo.vue')
             },
+            {
+                path: '/transfers',
+                component: TransferList
+            },
+            {
+                path: '/transfers/:id',
+                component: TransferDetail
+            },
+        
+            {
+                path: '/products',
+                component: ProductList,
+    
+            },
+            {
+                path: '/products/:id',
+                component: ProductDetail
+            },
+            {
+                path: '/products/new/',
+                component: NewProduct
+            },
+            {
+                path: '/product-categories',
+                component: ProductCategory,
+    
+            },
+           
+
             {
                 path: '/list',
                 name: 'list',

@@ -40,47 +40,75 @@ export default {
                         label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'
                     }]
                 },
+                {
+                    label: 'Operations',
+                    items: [
+                        {label: 'Transfers', icon: 'pi pi-fw pi-transfer', to: '/transfers'},
+                        { label: 'Inventory Adjustments', icon: 'pi pi-fw pi-inven-adjust', to: '/inventory-adjustment'}
+                    ]
+                },
+                {
+                    label: 'Products',
+                    items: [
+                        {label: 'Products', icon: 'pi pi-fw pi-products', to: '/products'},
+                        {label: 'Product Categories', icon: 'pi pi-fw pi-products', to: '/product-categories'},
+                    ]
+                },
+                {
+                    label: 'Reporting',
+                    items: [
+                        {label: 'Inventory Report', icon: 'pi pi-fw pi-inven-report', to: '/inventory-report'},
+                        {label: 'Product Moves', icon: 'pi pi-fw pi-inven-report', to: '/product-moves'},
+                    ]
+                },
+                {
+                    label: 'Billing',
+                    items: [
+                        {label: 'Billing Summary', icon: 'pi pi-fw pi-billing-summary', to: '/billing-summary'},
+                        {label: 'Billing History', icon: 'pi pi-fw pi-billing-history', to: '/billing-history'},
+                    ]
+                },
 				{
 					label: 'UI Components', icon: 'pi pi-fw pi-sitemap',
 					items: [
 						{label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout'},
 						{label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input'},
-                        {label: "Float Label", icon: "pi pi-fw pi-bookmark", to: "/floatlabel"},
+                        // {label: "Float Label", icon: "pi pi-fw pi-bookmark", to: "/floatlabel"},
                         {label: "Invalid State", icon: "pi pi-fw pi-exclamation-circle", to: "/invalidstate"},
 						{label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button'},
 						{label: 'Table', icon: 'pi pi-fw pi-table', to: '/table'},
-						{label: 'List', icon: 'pi pi-fw pi-list', to: '/list'},
-						{label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree'},
-						{label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel'},
-						{label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay'},
-                        {label: "Media", icon: "pi pi-fw pi-image", to: "/media"},
+						// {label: 'List', icon: 'pi pi-fw pi-list', to: '/list'},
+						// {label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree'},
+						// {label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel'},
+						// {label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay'},
+                        // {label: "Media", icon: "pi pi-fw pi-image", to: "/media"},
 						{label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/menu'},
-						{label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages'},
-						{label: 'File', icon: 'pi pi-fw pi-file', to: '/file'},
+						// {label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages'},
+						// {label: 'File', icon: 'pi pi-fw pi-file', to: '/file'},
 						{label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/chart'},
 						{label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/misc'},
 					]
 				},
-                {
-                    label: 'PrimeBlocks',
-                    items: [
-                        {label: 'Free Blocks', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: "NEW"},
-                        {label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: 'https://www.primefaces.org/primeblocks-vue', target: '_blank'}
-                    ]
-                },
+                // {
+                //     label: 'PrimeBlocks',
+                //     items: [
+                //         // {label: 'Free Blocks', icon: 'pi pi-fw pi-eye', to: '/blocks', badge: "NEW"},
+                //         {label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: 'https://www.primefaces.org/primeblocks-vue', target: '_blank'}
+                //     ]
+                // },
                 {
                     label: 'Utilities',
                     items: [
                         {label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', to: '/icons'},
-                        {label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://www.primefaces.org/primeflex/', target: '_blank'},
+                        // {label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://www.primefaces.org/primeflex/', target: '_blank'},
                     ]
                 },
 				{
 					label: 'Pages', icon: 'pi pi-fw pi-clone',
 					items: [
 						{label: 'Crud', icon: 'pi pi-fw pi-user-edit', to: '/crud'},
-						{label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline'},
-                        {label: 'Landing', icon: 'pi pi-fw pi-globe', to: '/landing'},
+						// {label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline'},
+                        // {label: 'Landing', icon: 'pi pi-fw pi-globe', to: '/landing'},
                         {label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login'},
                         {label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error'},
                         {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound'},

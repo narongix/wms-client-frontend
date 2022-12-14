@@ -5,7 +5,7 @@
 				<h5>Vertical</h5>
 				<div class="field">
 					<label for="name1">Name</label>
-					<InputText id="name1" type="text" />
+					<InputText id="name1" type="text" value="Test" />
 				</div>
 				<div class="field">
 					<label for="email1">Email</label>
