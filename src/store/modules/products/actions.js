@@ -1,12 +1,13 @@
 
 import axios from "axios";
 import router from '../../../router.js';
+var hosturl = "http://localhost:3000";
 export default {
     async getProducts(context, params) {
 
         console.log(params);
         //get local products instead of directly from odoo because of speed
-        await axios.get('http://localhost:3000/product/list',
+        await axios.get(hosturl+'/product/list',
             {
                 headers: {
                     'Authorization': localStorage.accessToken
@@ -28,7 +29,7 @@ export default {
 
         console.log(`getProd ${params}`);
     
-        await axios.get('http://localhost:3000/category',
+        await axios.get(hosturl+'/category',
             {
                 headers: {
                     'Authorization': localStorage.accessToken
@@ -60,7 +61,7 @@ export default {
         console.log(data)
         console.log(config)
         await axios
-            .post('http://localhost:3000/product/add', data, config)
+            .post(hosturl+'/product/add', data, config)
             .then(response => {
                 console.log(response);
                 router.replace('/products')
@@ -72,8 +73,8 @@ export default {
 
     },
     async updateProduct(context, payload) {
-        // console.log(`Payload ${JSON.stringify(payload)}`)
-        const url = 'http://localhost:3000/product/' + payload.id
+        console.log(`Payload11111111 ${JSON.stringify(payload)}`)
+        const url = hosturl+'/product/' + payload.id
         //transform the fields to match the api fields
 
         const data = {
@@ -87,7 +88,7 @@ export default {
             headers: { Authorization: `Bearer ${localStorage.accessToken}` }
         };
 
-        console.log(url)
+        console.log('url '+url)
         console.log("data: " + JSON.stringify(data))
 
         // if (Object.keys(payload).length > 0) {
@@ -109,7 +110,7 @@ export default {
 
     },
     async deleteProduct(context, payload) {
-        const url = 'http://localhost:3000/product'
+        const url = hosturl+'/product'
         const data = {
             productIds: []
         }
