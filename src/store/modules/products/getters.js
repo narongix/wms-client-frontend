@@ -7,5 +7,10 @@ export default{
     },
     prodCategories(state){
         return state.prodCategories;
-    } 
+    },
+
+    // findProductCategogory: (state) => (id) => {
+    //     const rice = state.data.find(p=>p.id=id)
+    //     return rice
+    // }
 }

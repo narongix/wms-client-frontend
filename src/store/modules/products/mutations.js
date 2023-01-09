@@ -13,6 +13,7 @@ export default {
     // console.log(`after mod: ${state.products===modifiedProducts}`)
     // console.log(JSON.stringify(modifiedProducts));
   },
+
   updateProduct(state, payload) {
     let product_name = payload.name;
     let sku = payload.sku;
@@ -40,5 +41,31 @@ export default {
     // console.log("AFTER MUTATION"+JSON.stringify(state.products[index]));
 
 
-  }
+  },
+
+
+  updateProductCategory(state, payload) {
+    let category_name = payload.name;
+    const data = {
+      id: payload.id,
+    }
+    if (category_name) { data.category_name = category_name; }
+
+    const index = state.prodCategories.findIndex(category => category.id == data.id);
+
+    if (state.prodCategories[index]) {
+      state.prodCategories[index] = Object.assign(state.prodCategories[index], data);
+    }
+  },
+
+
+  deleteProductCategory(state, payload) {
+    // console.log("REEEEEEEEEEEEEE: "+JSON.stringify(state.prodCategories))
+    // console.log("payload id: "+ JSON.stringify(payload))
+    const index = state.prodCategories.findIndex( e => e.id == payload.id)
+    state.prodCategories.splice(index, 1)
+
+  },
+
+
 }

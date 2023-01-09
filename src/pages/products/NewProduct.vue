@@ -27,13 +27,10 @@
                         <div class="field col-12 md:col-12">
                             <label for="category-name">Product Category</label>
                             <v-select id="category-name" :options=prodCategories label="category_name"
-                                v-model="prodCategory"></v-select>
+                                v-model="prodCategory" taggable>
+                            </v-select>
                         </div>
-
-
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -45,7 +42,6 @@
 import router from '../../router.js';
 
 export default {
-
     data() {
         return {
             productName: {
@@ -59,6 +55,9 @@ export default {
 
             formIsValid: true,
             prodCategory: null,
+            Items: {
+                selected_items: []
+            },
         };
     },
     created() {
@@ -70,7 +69,7 @@ export default {
         },
         showValidity() {
             return this.productName.isValid
-        }
+        },
     },
     methods: {
         async submitForm() {
@@ -108,8 +107,18 @@ export default {
             } catch (e) {
                 console.log(e);
             }
+        },
+    },
+    watch:{
+        prodCategory(newVal){
+            
+            this.Items.selected_items.push(newVal["category_name"]);
+            this.$store.dispatch("products/addProductCategory", newVal);
+            
+            // console.log("New Data " + JSON.stringify(newVal["category_name"]));
         }
     }
+    
 }
 </script>
 
