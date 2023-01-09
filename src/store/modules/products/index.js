@@ -7,7 +7,7 @@ export default{
     state(){
         return{
             products:{},
-            prodCategories:[]
+            prodCategories:[],
         }
     },
     mutations,

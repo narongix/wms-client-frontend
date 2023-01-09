@@ -6,6 +6,8 @@ import ProductList from './pages/products/ProductList.vue';
 import ProductDetail from './pages/products/ProductDetail.vue';
 import NewProduct from './pages/products/NewProduct.vue';
 import ProductCategory from './pages/products/ProductCategory.vue' ;
+import NewProductCategory from './pages/products/NewProductCategory.vue';
+import ProductCategoryDetail from './pages/products/ProductCategoryDetail.vue';
 
 
 
@@ -86,7 +88,15 @@ const routes = [
                 component: ProductCategory,
     
             },
-           
+            {
+                path: '/product-categories/new/',
+                component: NewProductCategory,
+    
+            },
+            {
+                path: '/product-categories/:id',
+                component: ProductCategoryDetail
+            },
 
             {
                 path: '/list',

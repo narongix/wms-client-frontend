@@ -120,6 +120,8 @@ app.use(ConfirmationService);
 app.use(ToastService);
 app.use(router);
 
+localStorage.accessToken="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkNzYyNjExZi0zMzI0LTQxYjktYjA5MC05YmZiMzg2YmY0M2YiLCJpYXQiOjE2NzE1OTkwNTV9.aFRMuw0SbdobZbWu4kFXkLeKbIxcE3DvA0ioslQ6QG8"
+
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);
 app.directive('code', CodeHighlight);
