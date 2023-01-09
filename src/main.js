@@ -96,7 +96,7 @@ import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 ///Non-template Customizations
-import TransferItem from './components/ui/transfers/TransferItem.vue';
+import TransferItem from './pages/transfers/components/TransferItem.vue';
 
 import CodeHighlight from './AppCodeHighlight';
 import BlockViewer from './BlockViewer';
@@ -119,6 +119,9 @@ app.use(PrimeVue, { ripple: true, inputStyle: 'outlined' });
 app.use(ConfirmationService);
 app.use(ToastService);
 app.use(router);
+
+// localStorage.accessToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkNzYyNjExZi0zMzI0LTQxYjktYjA5MC05YmZiMzg2YmY0M2YiLCJpYXQiOjE2NzEwNzgxMzJ9.eS6r33B_trAX6MjpLWfKEA0JMmuYzM-T8SVZpYaayQA"
+localStorage.accessToken="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiIwZGExM2UxZS01NGE0LTQyODctYmNkYy03YWNhNmE3Y2RiZWIiLCJpYXQiOjE2NzMyNTMyMjh9.2ERp6pUv7N4gk8423LBFIgQV68ZbC2McwH08erGVea8"
 
 app.directive('tooltip', Tooltip);
 app.directive('ripple', Ripple);

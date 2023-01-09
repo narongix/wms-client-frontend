@@ -1,12 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import App from './App.vue';
-import TransferDetail from './components/TransferDetail.vue';
-import TransferList from './components/TransferList.vue';
 import ProductList from './pages/products/ProductList.vue';
 import ProductDetail from './pages/products/ProductDetail.vue';
 import NewProduct from './pages/products/NewProduct.vue';
 import ProductCategory from './pages/products/ProductCategory.vue' ;
-
+// import CreateTransfer from "./pages/transfers/CreateTransfer.vue";
 
 
 const routes = [
@@ -61,13 +59,25 @@ const routes = [
             },
             {
                 path: '/transfers',
-                component: TransferList
+                name: "TransferList",   
+                component: ()=> import("./pages/transfers/TransferList.vue"),
             },
             {
-                path: '/transfers/:id',
-                component: TransferDetail
+                path:"/transfers/create",
+                name: "TransferCreate",
+                component: ()=>import("./pages/transfers/CreateTransfer.vue"),
+                // component: CreateTransfer,
             },
-        
+            {
+                path: "/transfers/:id",
+                name: "TransferDetail",
+                component: ()=>import("./pages/transfers/MyTransferDetail.vue"),
+            },
+            {
+                path: "/transfers/:id/edit",
+                name: "TransferEdit",
+                component: ()=> import("./pages/transfers/MyTransferDetail.vue"),
+            },
             {
                 path: '/products',
                 component: ProductList,
@@ -86,8 +96,6 @@ const routes = [
                 component: ProductCategory,
     
             },
-           
-
             {
                 path: '/list',
                 name: 'list',

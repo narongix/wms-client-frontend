@@ -7,8 +7,9 @@
 	},
 	"license": "MIT",
 	"scripts": {
-		"serve": "vue-cli-service serve",
-		"build": "vue-cli-service build",
+		"serve": "vue-cli-service serve --mode dev",
+		"local": "vue-cli-service serve --mode offline",
+		"build": "vue-cli-service build --mode prod",
 		"lint": "vue-cli-service lint",
 		"test:unit": "vue-cli-service test:unit"
 	},
