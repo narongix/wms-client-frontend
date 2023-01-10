@@ -122,7 +122,7 @@
 			</div>
 
 			<div class="card">
-				<h5>Rounded Outlined</h5>
+				<h5>Rounded Outlined</h5> 
 				<Button icon="pi pi-check" class="p-button-rounded p-button-outlined mr-2 mb-2" />
 				<Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary p-button-outlined mr-2 mb-2" />
 				<Button icon="pi pi-search" class="p-button-rounded p-button-success p-button-outlined mr-2 mb-2" />
