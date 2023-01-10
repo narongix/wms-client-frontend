@@ -6,7 +6,7 @@
                 <Button v-if="!isLoading" label="Create" class="p-button-success mr-2" @click="goToNewProduct" />
                 <p></p>
                 <DataTable :value="products" :paginator="true" class="p-datatable-gridlines" :rows="10" dataKey="id"
-                    :rowHover="true" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll">
+                    :rowHover="true" filterDisplay="menu" :loading="loading1" responsiveLayout="scroll" :rowsPerPageOptions="[10,20,30]">
 
                     <!-- <template #header>
                         <div class="flex justify-content-between flex-column sm:flex-row">

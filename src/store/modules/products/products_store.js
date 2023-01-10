@@ -25,7 +25,7 @@ export default{
             // console.log(`after mod: ${state.products===modifiedProducts}`)
             // console.log(JSON.stringify(modifiedProducts));
           },
-
+        
           updateProduct(state, payload) {
             let product_name = payload.name;
             let sku = payload.sku;
@@ -51,6 +51,32 @@ export default{
             }
             
             // console.log("AFTER MUTATION"+JSON.stringify(state.products[index]));
+        
+        
+          },
+        
+        
+          updateProductCategory(state, payload) {
+            let category_name = payload.name;
+            const data = {
+              id: payload.id,
+            }
+            if (category_name) { data.category_name = category_name; }
+        
+            const index = state.prodCategories.findIndex(category => category.id == data.id);
+        
+            if (state.prodCategories[index]) {
+              state.prodCategories[index] = Object.assign(state.prodCategories[index], data);
+            }
+          },
+        
+        
+          deleteProductCategory(state, payload) {
+            // console.log("REEEEEEEEEEEEEE: "+JSON.stringify(state.prodCategories))
+            // console.log("payload id: "+ JSON.stringify(payload))
+            const index = state.prodCategories.findIndex( e => e.id == payload.id)
+            state.prodCategories.splice(index, 1)
+        
           },
 
           updateProductState(state, products){
@@ -69,11 +95,10 @@ export default{
 
             console.log(params);
             //get local products instead of directly from odoo because of speed
-            await axios.get('http://localhost:3000/product/list?limit=10&offset=0',
+            await axios.get(hosturl+'/product/list',
                 {
                     headers: {
-                        "Content-Type": "application/json",
-                        'Authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiJkNzYyNjExZi0zMzI0LTQxYjktYjA5MC05YmZiMzg2YmY0M2YiLCJpYXQiOjE2NzEwNzgxMzJ9.eS6r33B_trAX6MjpLWfKEA0JMmuYzM-T8SVZpYaayQA"
+                        'Authorization': localStorage.accessToken
                     }
                 }
             ).then(response => {
@@ -88,18 +113,11 @@ export default{
                     throw error;
                 })
         },
-
-        async onFetchProducts({ getters, commit }, {offset}){
-            const products = await ApiService.getProducts(offset, getters["limit"])
-            
-            commit("updateProductState", products)
-        },
-
         async getProdCategories(context, params) {
     
             console.log(`getProd ${params}`);
         
-            await axios.get('http://localhost:3000/category',
+            await axios.get(hosturl+'/category',
                 {
                     headers: {
                         'Authorization': localStorage.accessToken
@@ -131,7 +149,7 @@ export default{
             console.log(data)
             console.log(config)
             await axios
-                .post('http://localhost:3000/product/add', data, config)
+                .post(hosturl+'/product/add', data, config)
                 .then(response => {
                     console.log(response);
                     router.replace('/products')
@@ -143,8 +161,8 @@ export default{
     
         },
         async updateProduct(context, payload) {
-            // console.log(`Payload ${JSON.stringify(payload)}`)
-            const url = 'http://localhost:3000/product/' + payload.id
+            console.log(`Payload11111111 ${JSON.stringify(payload)}`)
+            const url = hosturl+'/product/' + payload.id
             //transform the fields to match the api fields
     
             const data = {
@@ -158,7 +176,7 @@ export default{
                 headers: { Authorization: `Bearer ${localStorage.accessToken}` }
             };
     
-            console.log(url)
+            console.log('url '+url)
             console.log("data: " + JSON.stringify(data))
     
             // if (Object.keys(payload).length > 0) {
@@ -180,7 +198,7 @@ export default{
     
         },
         async deleteProduct(context, payload) {
-            const url = 'http://localhost:3000/product'
+            const url = hosturl+'/product'
             const data = {
                 productIds: []
             }
@@ -206,7 +224,13 @@ export default{
                 })
     
             context.commit('deleteProduct', payload);
-        }
+        },
+
+        async onFetchProducts({ getters, commit }, {offset}){
+            const products = await ApiService.getProducts(offset, getters["limit"])
+            
+            commit("updateProductState", products)
+        },
     },
     getters:{
         products(state){
